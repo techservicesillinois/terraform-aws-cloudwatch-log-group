@@ -6,7 +6,7 @@ variable "disable_subscription_filter" {
 # Use cloudwatch_to_splunk lambda function by default.
 variable "function_name" {
   description = "Name of the lambda function to be invoked by the filter"
-  default     = "cloudwatch_to_splunk"
+  default     = "cloudwatch-to-splunk"
 }
 
 variable "filter_pattern" {
