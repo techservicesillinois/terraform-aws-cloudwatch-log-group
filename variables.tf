@@ -20,10 +20,12 @@ variable "name" {
 
 variable "retention" {
   description = "Log retention period in days"
-  default     = "30"
+  type        = number
+  default     = 30
 }
 
 variable "tags" {
   description = "A map of tags for the resource"
+  type        = map(string)
   default     = {}
 }
