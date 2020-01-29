@@ -26,9 +26,7 @@ resource "aws_cloudwatch_log_subscription_filter" "default" {
   log_group_name = aws_cloudwatch_log_group.default.name
   filter_pattern = var.filter_pattern
 
-  # This is a workaround for a Terraform provider bug; see
-  # https://github.com/terraform-providers/terraform-provider-aws/issues/5161.
-  destination_arn = replace(data.aws_lambda_function.selected.arn, ":$LATEST", "")
+  destination_arn = data.aws_lambda_function.selected.qualified_arn
 
   depends_on = [aws_lambda_permission.default]
 }
