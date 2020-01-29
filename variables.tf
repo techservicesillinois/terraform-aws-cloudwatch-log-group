@@ -15,7 +15,7 @@ variable "filter_pattern" {
 }
 
 variable "name" {
-  description = "Log group name (NOTE: Use service name)"
+  description = "Log group name"
 }
 
 variable "retention" {
