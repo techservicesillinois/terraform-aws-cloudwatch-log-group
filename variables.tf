@@ -18,6 +18,17 @@ variable "name" {
   description = "Log group name"
 }
 
+variable "parameters" {
+  description = "Parameters expressed as a map of maps. Each map's key is its intended SSM parameter name, and the value stored under that key is another map that may contain the following keys: description, type, and value. Default values are supplied for default cloudwatch-to-splunk lambda function"
+  type        = map(map(string))
+  default     = {}
+}
+
+variable "prefix" {
+  description = "Prefix prepended to parameter name if not using default"
+  default     = "/cloudwatch_to_splunk"
+}
+
 variable "retention" {
   description = "Log retention period in days"
   type        = number
