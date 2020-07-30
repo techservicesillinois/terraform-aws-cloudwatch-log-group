@@ -4,9 +4,8 @@
 
 Provides a CloudWatch Log Group resource. By default a [subscription
 filter](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs//Subscriptions.html)
-is provided that forwards all of the log group's data to
-the Lambda function
-[cloudwatch-to-splunk](https://github.com/techservicesillinois/terraform-aws-cloudwatch-to-splunk).
+is provided that forwards all of the log group's data to the
+[cloudwatch-to-splunk](https://github.com/techservicesillinois/terraform-aws-cloudwatch-to-splunk) lambda function. If the subscription filter is enabled (the default), provide [the three SSM parameter store variables](https://github.com/techservicesillinois/splunk-aws-serverless-apps/tree/master/splunk-cloudwatch-logs-processor) required by the lambda function. Values for these variables will normally be set in the AWS console. If `disable_subscription_filter` is set, these variables are not provided.
 
 Argument Reference
 -----------------
