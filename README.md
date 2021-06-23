@@ -1,6 +1,6 @@
 # cloudwatch-log-group
 
-[![Build Status](https://drone.techservices.illinois.edu/api/badges/techservicesillinois/terraform-aws-cloudwatch-log-group/status.svg)](https://drone.techservices.illinois.edu/techservicesillinois/terraform-aws-cloudwatch-log-group)
+[![Terraform actions status](https://github.com/techservicesillinois/terraform-aws-cloudwatch-log-group/workflows/terraform/badge.svg)](https://github.com/techservicesillinois/terraform-aws-cloudwatch-log-group/actions)
 
 Provides a CloudWatch Log Group resource. By default a [subscription
 filter](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs//Subscriptions.html)
