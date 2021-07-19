@@ -15,18 +15,15 @@ resource "aws_lambda_permission" "default" {
   count         = var.disable_subscription_filter ? 0 : 1
   action        = "lambda:InvokeFunction"
   function_name = data.aws_lambda_function.selected.function_name
-
-  principal  = local.principal
-  source_arn = aws_cloudwatch_log_group.default.arn
+  principal     = local.principal
+  source_arn    = format("%s:*", aws_cloudwatch_log_group.default.arn)
 }
 
 resource "aws_cloudwatch_log_subscription_filter" "default" {
-  count          = var.disable_subscription_filter ? 0 : 1
-  name           = "filter"
-  log_group_name = aws_cloudwatch_log_group.default.name
-  filter_pattern = var.filter_pattern
-
+  count           = var.disable_subscription_filter ? 0 : 1
+  name            = "filter"
+  log_group_name  = aws_cloudwatch_log_group.default.name
+  filter_pattern  = var.filter_pattern
   destination_arn = data.aws_lambda_function.selected.arn
-
-  depends_on = [aws_lambda_permission.default]
+  depends_on      = [aws_lambda_permission.default]
 }
