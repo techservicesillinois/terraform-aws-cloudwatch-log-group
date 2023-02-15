@@ -25,6 +25,7 @@ resource "aws_ssm_parameter" "default" {
   type        = lookup(each.value, "type", "String")
   value       = lookup(each.value, "value", "*** NO VALUE SET ***")
   description = lookup(each.value, "description", "*** NO DESCRIPTION SET ***")
+  tags        = var.tags
 
   lifecycle {
     # Never update the value of an existing SSM parameter.
