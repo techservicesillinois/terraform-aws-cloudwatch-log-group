@@ -1,6 +1,6 @@
 locals {
   function_name = var.function_name
-  principal     = "logs.${data.aws_region.current.name}.amazonaws.com"
+  principal     = "logs.${data.aws_region.current.region}.amazonaws.com"
 }
 
 # Get current region.
